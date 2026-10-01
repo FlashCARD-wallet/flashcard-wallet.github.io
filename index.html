@@ -177,7 +177,10 @@
 
     <script>
         const params = new URLSearchParams(window.location.search);
-        const rawCode = params.get("code") || "";
+        const rawCode =
+    params.get("c") ||
+    params.get("code") ||
+    "";
 
         const normalizedCode = rawCode
             .trim()
