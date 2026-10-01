@@ -1,0 +1,14 @@
+[
+  {
+    "relation": [
+      "delegate_permission/common.handle_all_urls"
+    ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.aistudio.flashcard.wvmx",
+      "sha256_cert_fingerprints": [
+        "AB:9D:F5:C4:D4:BC:C0:93:2A:E8:A9:15:06:31:84:31:6B:EA:0F:E8:22:02:DD:A3:74:DA:48:11:5A:D7:46:1A"
+      ]
+    }
+  }
+]
