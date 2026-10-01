@@ -197,3 +197,52 @@
 
         const statusMessage =
             document.getElementById
+("statusMessage");
+
+        if (isValidCode) {
+            inviteCodeElement.textContent = normalizedCode;
+            openAppButton.disabled = false;
+            copyButton.disabled = false;
+        } else {
+            inviteCodeElement.textContent =
+                "Codice invito non valido";
+
+            inviteCodeElement.classList.add("invalid");
+
+            statusMessage.textContent =
+                "Apri nuovamente il collegamento ricevuto oppure inserisci il codice manualmente nell'app.";
+        }
+
+        openAppButton.addEventListener("click", function () {
+            if (!isValidCode) {
+                return;
+            }
+
+            const appUrl =
+                "flashcard://family/join?code=" +
+                encodeURIComponent(normalizedCode);
+
+            statusMessage.textContent =
+                "Apertura di FlashCARD in corso...";
+
+            window.location.href = appUrl;
+        });
+
+        copyButton.addEventListener("click", async function () {
+            if (!isValidCode) {
+                return;
+            }
+
+            try {
+                await navigator.clipboard.writeText(normalizedCode);
+
+                statusMessage.textContent =
+                    "Codice copiato. Ora puoi incollarlo in FlashCARD.";
+            } catch (error) {
+                statusMessage.textContent =
+                    "Non è stato possibile copiare automaticamente il codice. Tieni premuto sul codice per copiarlo.";
+            }
+        });
+    </script>
+</body>
+</html>
